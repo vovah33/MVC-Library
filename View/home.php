@@ -18,11 +18,20 @@
         <?php endforeach;?>
     </div>
         <div class="section">
-        <h2>Books</h2>
-        
+        <h2>Authors</h2>
+        <?php foreach ($authors as $author):?>
+            <div class="item">
+                <div><?=$author?></div>
+            </div>
+        <?php endforeach;?>
     </div>
         <div class="section">
-        <h2>Books</h2>
+        <h2>Genres</h2>
+        <?php foreach ($genres as $genre):?>
+            <div class="item">
+                <div><?=$genre?></div>
+            </div>
+        <?php endforeach;?>
     </div>
 </body>
 </html>

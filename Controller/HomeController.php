@@ -1,11 +1,23 @@
-<?php 
+<?php  
+require_once 'Controller/Controller.php';
+require_once 'Model/BookModel.php';
+require_once 'Model/AuthorModel.php';
+require_once 'Model/GenreModel.php';
 
-class HomeController{
-    public function index(){
-        $books = ['book1', 'book2', 'book3'];
-        $authors = ['author1','author2','author3'];
-        $genres = ['genre1','genre2','genre3'];
+class HomeController extends Controller {
+    public function index() {
+        $bookModel = new BookModel();
+        $authorModel = new AuthorModel();
+        $genreModel = new GenreModel();
 
-        require 'View/home.php';
+        $books = $bookModel->getAllBooks();
+        $authors = $authorModel->getAllAuthors();
+        $genres = $genreModel->getAllGenres();
+
+        $this->render('home', [
+            'books' => $books,
+            'authors' => $authors,
+            'genres' => $genres
+        ]);
     }
 }
