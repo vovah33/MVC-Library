@@ -3,6 +3,7 @@ require_once 'Controller/Controller.php';
 require_once 'Model/BookModel.php';
 require_once 'Model/AuthorModel.php';
 require_once 'Model/GenreModel.php';
+require_once 'View/HomeView.php';
 
 class HomeController extends Controller {
     public function index() {
@@ -14,10 +15,6 @@ class HomeController extends Controller {
         $authors = $authorModel->getAllAuthors();
         $genres = $genreModel->getAllGenres();
 
-        $this->render('home', [
-            'books' => $books,
-            'authors' => $authors,
-            'genres' => $genres
-        ]);
+        HomeView::render($books, $authors, $genres);
     }
 }
