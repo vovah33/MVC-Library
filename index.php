@@ -1,23 +1,47 @@
-<?php 
+<?php
+// Безпечне отримання параметрів GET
+$page = $_GET['page'] ?? 'home';
+$id = $_GET['id'] ?? null;
 
-require_once 'Controller/HomeController.php';
-require_once 'Controller/BookController.php';
+switch ($page) {
+    case 'book':
+        require_once 'Controller/BookController.php';
+        $controller = new BookController();
+        if ($id) {
+            $controller->show($id);
+        } else {
+            echo "Book ID is missing.";
+        }
+        break;
 
-$controller = new HomeController();
+    case 'author':
+        require_once 'Controller/AuthorController.php';
+        $controller = new AuthorController();
+        if ($id) {
+            $controller->show($id);
+        } else {
+            echo "Author ID is missing.";
+        }
+        break;
 
-$controller->index();
+    case 'genre':
+        require_once 'Controller/GenreController.php';
+        $controller = new GenreController();
+        if ($id) {
+            $controller->show($id);
+        } else {
+            echo "Genre ID is missing.";
+        }
+        break;
 
-if ($_GET['page'] === 'book' && isset($_GET['id'])) {
-    $controller = new BookController();
-    $controller->show($_GET['id']);
+    case 'home':
+    default:
+        require_once 'Controller/HomeController.php';
+        $controller = new HomeController();
+        $controller->index();
+        break;
 }
 
-if ($_GET['page'] === 'author' && isset($_GET['id'])) {
-    $controller = new AuthorController();
-    $controller->show($_GET['id']);
-}
-
-if ($_GET['page'] === 'genre' && isset($_GET['id'])) {
-    $controller = new GenreController();
-    $controller->show($_GET['id']);
-}
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);

@@ -1,7 +1,6 @@
-
 <h2><?= htmlspecialchars($author['name']) ?></h2>
-<img src="assets/authors/<?= htmlspecialchars($author['image']) ?>" alt="Author">
-<p><?= htmlspecialchars($author['description']) ?></p>
+<img src="/MVC-Library/Public/Images/Photos/<?= htmlspecialchars($author['photo'] ?? '') ?>" alt="Author">
+<p><?= htmlspecialchars($author['bio']) ?></p>
 
 <h3>Books by this author:</h3>
 <ul>

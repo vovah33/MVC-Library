@@ -1,6 +1,3 @@
- 
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +7,7 @@
 <body>
     <h1><?= htmlspecialchars($book['title']) ?></h1>
 
-    <img src="assets/books/<?= htmlspecialchars($book['cover']) ?>" alt="Book cover" width="200">
+    <img src="/MVC-Library/Public/Images/Covers/<?= htmlspecialchars($book['cover']) ?>" alt="Book cover" width="200">
 
     <p><?= htmlspecialchars($book['description']) ?></p>
 

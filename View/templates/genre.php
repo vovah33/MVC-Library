@@ -1,6 +1,5 @@
-
 <h2><?= htmlspecialchars($genre['name']) ?></h2>
-<img src="assets/genres/<?= htmlspecialchars($genre['icon']) ?>" alt="Icon">
+<img src="/MVC-Library/Public/Images/Icons/<?= htmlspecialchars($genre['icone'] ?? '') ?>" alt="Icon">
 <p><?= htmlspecialchars($genre['description']) ?></p>
 
 <h3>Books in this genre:</h3>

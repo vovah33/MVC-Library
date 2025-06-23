@@ -5,6 +5,24 @@
     <meta charset="UTF-8">
     <title>Library</title>
     <link rel="stylesheet" href="View/styles/main.css">
+    <style>
+        .item img {
+            max-width: 100px;
+            height: auto;
+            border: 1px solid #000;
+        }
+
+        .card, .item {
+            margin: 10px;
+            padding: 10px;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+    </style>
 </head>
 <body>
     <div>
@@ -15,8 +33,8 @@
         <h2>Books</h2>
         <?php foreach ($books as $book): ?>
             <div class="card">
-                <img src="assets/books/<?= htmlspecialchars($book['image']) ?>" alt="cover">
-                <h5><?= htmlspecialchars($book['title']) ?></h5>
+                <img src="/MVC-Library/Public/Images/Covers/<?= htmlspecialchars($book['cover'] ?? '') ?>" alt="cover">
+                <h5><?= htmlspecialchars($book['title'] ?? 'No title') ?></h5>
             </div>
         <?php endforeach; ?>
     </div>
@@ -25,8 +43,8 @@
         <h2>Authors</h2>
         <?php foreach ($authors as $author): ?>
             <div class="item">
-                <img src="assets/authors/<?= htmlspecialchars($author['image']) ?>" alt="author">
-                <div><?= htmlspecialchars($author['name']) ?></div>
+                <img src="/MVC-Library/Public/Images/Photos/<?= htmlspecialchars($author['photo'] ?? '') ?>" alt="author">
+                <div><?= htmlspecialchars($author['name'] ?? 'No name') ?></div>
             </div>
         <?php endforeach; ?>
     </div>
@@ -35,8 +53,8 @@
         <h2>Genres</h2>
         <?php foreach ($genres as $genre): ?>
             <div class="item">
-                <img src="assets/genres/<?= htmlspecialchars($genre['icon']) ?>" alt="genre">
-                <div><?= htmlspecialchars($genre['name']) ?></div>
+                <img src="/MVC-Library/Public/Images/Icons/<?= htmlspecialchars($genre['icone'] ?? '') ?>" alt="genre">
+                <div><?= htmlspecialchars($genre['name'] ?? 'No name') ?></div>
             </div>
         <?php endforeach; ?>
     </div>
