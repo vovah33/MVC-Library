@@ -46,3 +46,42 @@
     flex-wrap: wrap;
     gap: 16px;
 }
+
+
+.section {
+    max-width: 800px;
+    margin: 0 auto 40px;
+}
+
+.section h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.section p {
+    line-height: 1.6;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.section .tile {
+    margin-bottom: 20px;
+}
+
+/* Public/styles/layout.css (додаток) */
+.grid-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: flex-start;
+}
+
+.grid-row .tile {
+    flex: 0 0 160px; /* Фіксована ширина карток */
+    text-decoration: none; /* Прибрати підкреслення посилань */
+}
+
+.grid-row .tile:hover {
+    text-decoration: none; /* Зберегти стиль при наведенні */
+}
+
