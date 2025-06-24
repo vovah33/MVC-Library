@@ -13,4 +13,10 @@ class BookController {
             echo "Book not found.";
         }
     }
+
+    public function listAll() {
+        $model = new BookModel();
+        $books = $model->getAllBooks();
+        include 'View/templates/book_list.php';
+    }
 }

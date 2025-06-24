@@ -1,62 +1,76 @@
-<!-- View/home.php -->
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Library</title>
-    <link rel="stylesheet" href="View/styles/main.css">
-    <style>
-        .item img {
-            max-width: 100px;
-            height: auto;
-            border: 1px solid #000;
-        }
-
-        .card, .item {
-            margin: 10px;
-            padding: 10px;
-            display: inline-block;
-            text-align: center;
-        }
-
-        .section {
-            margin-bottom: 30px;
-        }
-    </style>
+    <title>Library Home</title>
+    <link rel="stylesheet" href="/MVC-Library/Public/styles/main.css">
+    <link rel="stylesheet" href="/MVC-Library/Public/styles/layout.css">
+    <link rel="stylesheet" href="/MVC-Library/Public/styles/cards.css">
 </head>
 <body>
-    <div>
-        <input type="text" placeholder="Search...">
-    </div>
+    <div class="container">
 
-    <div class="section">
-        <h2>Books</h2>
-        <?php foreach ($books as $book): ?>
-            <div class="card">
-                <img src="/MVC-Library/Public/Images/Covers/<?= htmlspecialchars($book['cover'] ?? '') ?>" alt="cover">
-                <h5><?= htmlspecialchars($book['title'] ?? 'No title') ?></h5>
-            </div>
-        <?php endforeach; ?>
-    </div>
+        <!-- Top Bar -->
+        <div class="top-bar">
+            <input type="text" placeholder="Search..." class="search-input">
+            <div class="logo">📚</div>
+            <div class="profile-icon">👤</div>
+        </div>
 
-    <div class="section">
-        <h2>Authors</h2>
-        <?php foreach ($authors as $author): ?>
-            <div class="item">
-                <img src="/MVC-Library/Public/Images/Photos/<?= htmlspecialchars($author['photo'] ?? '') ?>" alt="author">
-                <div><?= htmlspecialchars($author['name'] ?? 'No name') ?></div>
+        <!-- Books Section -->
+        <div class="section">
+            <div class="section-header">
+                <h2>Books</h2>
+                <a href="?page=books" class="button-tile">More</a>
             </div>
-        <?php endforeach; ?>
-    </div>
+            <div class="grid-row">
+                <?php foreach ($books as $book): ?>
+                    <div class="tile">
+                        <a href="?page=book&id=<?= $book['id'] ?>">
+                            <img src="/MVC-Library/Public/Images/Covers/<?= htmlspecialchars($book['cover']) ?>" alt="Book cover">
+                            <div class="title"><?= htmlspecialchars($book['title']) ?></div>
+                        </a>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
 
-    <div class="section">
-        <h2>Genres</h2>
-        <?php foreach ($genres as $genre): ?>
-            <div class="item">
-                <img src="/MVC-Library/Public/Images/Icons/<?= htmlspecialchars($genre['icone'] ?? '') ?>" alt="genre">
-                <div><?= htmlspecialchars($genre['name'] ?? 'No name') ?></div>
+        <!-- Authors Section -->
+        <div class="section">
+            <div class="section-header">
+                <h2>Authors</h2>
+                <a href="?page=authors" class="button-tile">More</a>
             </div>
-        <?php endforeach; ?>
+            <div class="grid-row">
+                <?php foreach ($authors as $author): ?>
+                    <div class="tile">
+                        <a href="?page=author&id=<?= $author['id'] ?>">
+                            <img src="/MVC-Library/Public/Images/Photos/<?= htmlspecialchars($author['photo']) ?>" alt="Author photo">
+                            <div class="title"><?= htmlspecialchars($author['name']) ?></div>
+                        </a>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+
+        <!-- Genres Section -->
+        <div class="section">
+            <div class="section-header">
+                <h2>Genres</h2>
+                <a href="?page=genres" class="button-tile">More</a>
+            </div>
+            <div class="grid-row">
+                <?php foreach ($genres as $genre): ?>
+                    <div class="tile">
+                        <a href="?page=genre&id=<?= $genre['id'] ?>">
+                            <img src="/MVC-Library/Public/Images/Icons/<?= htmlspecialchars($genre['icone']) ?>" alt="Genre icon">
+                            <div class="title"><?= htmlspecialchars($genre['name']) ?></div>
+                        </a>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+
     </div>
 </body>
 </html>

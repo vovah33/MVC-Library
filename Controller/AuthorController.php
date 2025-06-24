@@ -6,6 +6,12 @@ class AuthorController {
     public function show($id) {
         $model = new AuthorModel();
         $author = $model->getAuthorById($id);
-        AuthorView::render($author);
+        include 'View/templates/author.php';
+    }
+
+    public function listAll() {
+        $model = new AuthorModel();
+        $authors = $model->getAllAuthors();
+        include 'View/templates/author_list.php';
     }
 }
