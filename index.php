@@ -5,10 +5,44 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 // Отримуємо параметри з URL
+session_start(); // Ініціалізація сесії на початку
 $page = $_GET['page'] ?? 'home';
 $id = $_GET['id'] ?? null;
 
 switch ($page) {
+    case 'auth':
+        require_once 'Controller/AuthController.php';
+        $controller = new AuthController();
+        $controller->login();
+        break;
+
+    case 'login':
+        require_once 'Controller/AuthController.php';
+        (new AuthController())->login();
+        break;
+
+    case 'register':
+        require_once 'Controller/AuthController.php';
+        $controller = new AuthController();
+        $controller->register(); 
+        break;
+
+    case 'register_submit':
+        require_once 'Controller/AuthController.php';
+        (new AuthController())->register();
+        break;
+
+    case 'logout':
+        require_once 'Controller/AuthController.php';
+        (new AuthController())->logout();
+        break;
+
+    case 'favorites':
+        require_once 'Controller/FavoritesController.php';
+        $controller = new FavoritesController();
+        $controller->index();
+        break;
+
     case 'book':
         require_once 'Controller/BookController.php';
         $controller = new BookController();

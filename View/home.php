@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,9 +13,18 @@
 
         <!-- Top Bar -->
         <div class="top-bar">
-            <input type="text" placeholder="Search..." class="search-input">
-            <div class="logo">📚</div>
-            <div class="profile-icon">👤</div>
+            <div class="logo">Library</div>
+            <input type="text" class="search-input" placeholder="Search...">
+
+            <?php
+            if (isset($_SESSION['user'])) {
+                echo "<a href='?page=favorites' class='button-tile'>Favorites</a>";
+                echo "<a href='?page=logout' class='button-tile'>Logout</a>";
+            } else {
+                echo "<a href='?page=login' class='button-tile'>Login</a>";
+                echo "<a href='?page=register' class='button-tile'>Sign Up</a>";
+            }
+            ?>
         </div>
 
         <!-- Books Section -->
