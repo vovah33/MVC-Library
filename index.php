@@ -5,47 +5,48 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 // Отримуємо параметри з URL
-session_start(); // Ініціалізація сесії на початку
-$page = $_GET['page'] ?? 'home';
-$id = $_GET['id'] ?? null;
+if (session_status() === PHP_SESSION_NONE) {
+    session_start(); // Ініціалізація сесії лише якщо вона не активна
+}
+$page = filter_input(INPUT_GET, 'page', FILTER_DEFAULT) ?? 'home';
+$id = filter_input(INPUT_GET, 'id', FILTER_DEFAULT) ?? null;
+if ($id !== null) {
+    $id = filter_var($id, FILTER_VALIDATE_INT) ?: null;
+}
+
+require_once 'Config/Database.php';
+$db = (new Database())->getConnection();
 
 switch ($page) {
     case 'auth':
-        require_once 'Controller/AuthController.php';
-        $controller = new AuthController();
+    case 'login':
+        require_once 'Controllers/AuthController.php';
+        $controller = new AuthController($db);
         $controller->login();
         break;
 
-    case 'login':
-        require_once 'Controller/AuthController.php';
-        (new AuthController())->login();
-        break;
-
     case 'register':
-        require_once 'Controller/AuthController.php';
-        $controller = new AuthController();
-        $controller->register(); 
-        break;
-
     case 'register_submit':
-        require_once 'Controller/AuthController.php';
-        (new AuthController())->register();
+        require_once 'Controllers/AuthController.php';
+        $controller = new AuthController($db);
+        $controller->register();
         break;
 
     case 'logout':
-        require_once 'Controller/AuthController.php';
-        (new AuthController())->logout();
+        require_once 'Controllers/AuthController.php';
+        $controller = new AuthController($db);
+        $controller->logout();
         break;
 
     case 'favorites':
-        require_once 'Controller/FavoritesController.php';
-        $controller = new FavoritesController();
+        require_once 'Controllers/FavoritesController.php';
+        $controller = new FavoritesController($db);
         $controller->index();
         break;
 
     case 'book':
-        require_once 'Controller/BookController.php';
-        $controller = new BookController();
+        require_once 'Controllers/BookController.php';
+        $controller = new BookController($db);
         if ($id) {
             $controller->show($id);
         } else {
@@ -54,14 +55,14 @@ switch ($page) {
         break;
 
     case 'books':
-        require_once 'Controller/BookController.php';
-        $controller = new BookController();
+        require_once 'Controllers/BookController.php';
+        $controller = new BookController($db);
         $controller->listAll();
         break;
 
     case 'author':
-        require_once 'Controller/AuthorController.php';
-        $controller = new AuthorController();
+        require_once 'Controllers/AuthorController.php';
+        $controller = new AuthorController($db);
         if ($id) {
             $controller->show($id);
         } else {
@@ -70,14 +71,14 @@ switch ($page) {
         break;
 
     case 'authors':
-        require_once 'Controller/AuthorController.php';
-        $controller = new AuthorController();
+        require_once 'Controllers/AuthorController.php';
+        $controller = new AuthorController($db);
         $controller->listAll();
         break;
 
     case 'genre':
-        require_once 'Controller/GenreController.php';
-        $controller = new GenreController();
+        require_once 'Controllers/GenreController.php';
+        $controller = new GenreController($db);
         if ($id) {
             $controller->show($id);
         } else {
@@ -86,15 +87,15 @@ switch ($page) {
         break;
 
     case 'genres':
-        require_once 'Controller/GenreController.php';
-        $controller = new GenreController();
+        require_once 'Controllers/GenreController.php';
+        $controller = new GenreController($db);
         $controller->listAll();
         break;
 
     case 'home':
     default:
-        require_once 'Controller/HomeController.php';
-        $controller = new HomeController();
+        require_once 'Controllers/HomeController.php';
+        $controller = new HomeController($db);
         $controller->index();
         break;
 }

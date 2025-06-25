@@ -2,19 +2,25 @@
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
-require_once 'Model/UserModel.php';
+require_once 'Models/UserModel.php';
 
 class AuthController {
+    private $db;
+
+    public function __construct($db) {
+        $this->db = $db;
+    }
+
     public function login() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $email = $_POST['email'] ?? '';
-            $password = $_POST['password'] ?? '';
+            $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
+            $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
 
-            $userModel = new UserModel();
+            $userModel = new UserModel($this->db);
             $user = $userModel->authenticate($email, $password);
 
             if ($user) {
-                $_SESSION['user'] = $user;
+                $_SESSION['user'] = ['id' => $user->GetID(), 'email' => $user->email];
                 error_log("User logged in: " . $email);
                 header("Location: index.php");
                 exit;
@@ -30,10 +36,10 @@ class AuthController {
 
     public function register() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $email = $_POST['email'] ?? '';
-            $password = $_POST['password'] ?? '';
+            $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
+            $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
 
-            $userModel = new UserModel();
+            $userModel = new UserModel($this->db);
             if ($userModel->createUser($email, $password)) {
                 header("Location: index.php?page=login&message=registered");
                 exit;
@@ -49,9 +55,9 @@ class AuthController {
     public function logout() {
         if (session_status() === PHP_SESSION_ACTIVE) {
             session_destroy();
-            error_log("User logged out"); // Відладка
-            session_start(); // Ініціалізація нової сесії після знищення
-            $_SESSION = array(); // Очищення сесійних даних
+            error_log("User logged out");
+            session_start();
+            $_SESSION = array();
         }
         header("Location: index.php");
         exit;

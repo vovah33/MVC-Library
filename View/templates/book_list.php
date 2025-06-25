@@ -1,4 +1,4 @@
-<!-- View/templates/all-books.php -->
+<!-- View/templates/all_books.php -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,9 +13,9 @@
         <div class="top-bar">
             <div class="logo">Library</div>
             <div>
-                <input type="text" class="search-input" placeholder="Search...">
+
                 <button class="button-tile">Login</button>
-                <span class="profile-icon">👤</span>
+
             </div>
         </div>
 

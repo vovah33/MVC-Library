@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title><?= htmlspecialchars($author['name']) ?></title>
+    <title><?= htmlspecialchars($author['name'] ?? 'Author') ?></title>
     <link rel="stylesheet" href="/MVC-Library/Public/styles/main.css">
     <link rel="stylesheet" href="/MVC-Library/Public/styles/layout.css">
     <link rel="stylesheet" href="/MVC-Library/Public/styles/cards.css">
@@ -22,31 +22,40 @@
         </div>
 
         <div class="section">
-            <h1><?= htmlspecialchars($author['name']) ?></h1>
+            <h1><?= htmlspecialchars($author['name'] ?? 'No name') ?></h1>
             <div class="item-details">
                 <div class="tile">
                     <img src="/MVC-Library/Public/Images/Photos/<?= htmlspecialchars($author['photo'] ?? '') ?>" alt="Author photo">
-                    <div class="title"><?= htmlspecialchars($author['name']) ?></div>
+                    <div class="title"><?= htmlspecialchars($author['name'] ?? 'No name') ?></div>
                 </div>
                 <div class="text-content">
                     <p><?= htmlspecialchars($author['bio'] ?? 'No bio available') ?></p>
-                    <?php if (isset($author['books']) && is_array($author['books']) && !empty($author['books'])): ?>
-                        <p><strong>Books by this Author:</strong>
-                            <?php foreach ($author['books'] as $index => $book): ?>
-                                <a href="index.php?page=book&id=<?= htmlspecialchars($book['id']) ?>"><?= htmlspecialchars($book['title']) ?></a>
-                                <?php if ($index < count($author['books']) - 1) echo ", "; ?>
-                            <?php endforeach; ?>
-                        </p>
-                    <?php else: ?>
-                        <p>No books available by this author.</p>
-                    <?php endif; ?>
                 </div>
             </div>
-            <?php if (isset($_SESSION['user'])): ?>
-                <form method="POST" class="favorite-form">
-                    <button type="submit" name="action" value="add_favorite" class="button-tile">Add to Favorites</button>
-                </form>
-            <?php endif; ?>
+            <h3>Books by this Author:</h3>
+            <div class="grid-row">
+                <?php if (isset($author['books']) && is_array($author['books']) && !empty($author['books'])): ?>
+                    <?php foreach ($author['books'] as $book): ?>
+                        <div class="tile">
+                            <a href="?page=book&id=<?= htmlspecialchars($book['book_id'] ?? '') ?>">
+                                <div><?= htmlspecialchars($book['title'] ?? 'No title') ?></div>
+                            </a>
+                        </div>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <p>No books available for this author.</p>
+                <?php endif; ?>
+            </div>
+        <?php if (isset($_SESSION['user'])): ?>
+    <form method="post">
+        <?php if ($isFavorite): ?>
+            <button type="submit" name="remove_favorite" class="button-tile danger">Remove from Favorites</button>
+        <?php else: ?>
+            <button type="submit" name="add_favorite" class="button-tile">Add to Favorites</button>
+        <?php endif; ?>
+    </form>
+<?php endif; ?>
+
             <a href="/MVC-Library/" class="button-tile">Back to Home</a>
         </div>
     </div>

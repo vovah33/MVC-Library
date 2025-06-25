@@ -36,8 +36,23 @@
     color: #5e3d2d;
     text-align: center;
     transition: background-color 0.3s;
+    text-decoration: none; /* Додано для посилань */
+    display: inline-block; /* Забезпечує правильне відображення як кнопки */
 }
 
 .button-tile:hover {
     background-color: #e0c9a6;
+}
+
+.section-link {
+    display: block; /* Кнопка займає весь доступний простір */
+    margin: 10px 0; /* Відступ зверху і знизу */
+    text-align: center; /* Центруємо текст */
+}
+
+.grid-row {
+    display: grid; /* Використовуємо сітку */
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); /* Адаптивна сітка, відповідає ширині .tile */
+    gap: 20px; /* Відступ між картками */
+    margin-top: 20px; /* Додаємо відступ зверху, щоб відокремити від кнопки */
 }

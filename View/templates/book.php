@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title><?= htmlspecialchars($book['title']) ?></title>
+    <title><?= htmlspecialchars($book['title'] ?? 'Book') ?></title>
     <link rel="stylesheet" href="/MVC-Library/Public/styles/main.css">
     <link rel="stylesheet" href="/MVC-Library/Public/styles/layout.css">
     <link rel="stylesheet" href="/MVC-Library/Public/styles/cards.css">
@@ -22,31 +22,36 @@
         </div>
 
         <div class="section">
-            <h1><?= htmlspecialchars($book['title']) ?></h1>
+            <h1><?= htmlspecialchars($book['title'] ?? 'No title') ?></h1>
             <div class="item-details">
                 <div class="tile">
                     <img src="/MVC-Library/Public/Images/Covers/<?= htmlspecialchars($book['cover'] ?? '') ?>" alt="Book cover">
-                    <div class="title"><?= htmlspecialchars($book['title']) ?></div>
+                    <div class="title"><?= htmlspecialchars($book['title'] ?? 'No title') ?></div>
                 </div>
                 <div class="text-content">
                     <p><?= htmlspecialchars($book['description'] ?? 'No description available') ?></p>
                     <p><strong>Author:</strong> 
-                        <a href="index.php?page=author&id=<?= $book['author_id'] ?>">
+                        <a href="index.php?page=author&id=<?= htmlspecialchars($book['author_id'] ?? '') ?>">
                             <?= htmlspecialchars($book['author_name'] ?? 'Unknown author') ?>
                         </a>
                     </p>
                     <p><strong>Genre:</strong> 
-                        <a href="index.php?page=genre&id=<?= $book['genre_id'] ?>">
+                        <a href="index.php?page=genre&id=<?= htmlspecialchars($book['genre_id'] ?? '') ?>">
                             <?= htmlspecialchars($book['genre_name'] ?? 'Unknown genre') ?>
                         </a>
                     </p>
                 </div>
             </div>
-            <?php if (isset($_SESSION['user'])): ?>
-                <form method="POST" class="favorite-form">
-                    <button type="submit" name="action" value="add_favorite" class="button-tile">Add to Favorites</button>
-                </form>
-            <?php endif; ?>
+<?php if (isset($_SESSION['user'])): ?>
+    <form method="post">
+        <?php if ($isFavorite): ?>
+            <button type="submit" name="remove_favorite" class="button-tile danger">Remove from Favorites</button>
+        <?php else: ?>
+            <button type="submit" name="add_favorite" class="button-tile">Add to Favorites</button>
+        <?php endif; ?>
+    </form>
+<?php endif; ?>
+
             <a href="/MVC-Library/" class="button-tile">Back to Home</a>
         </div>
     </div>
