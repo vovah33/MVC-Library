@@ -3,18 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
-    <link rel="stylesheet" href="/../../Public/styles/auth.css">
-
+    <link rel="stylesheet" href="/MVC-Library/Public/styles/auth.css">
 </head>
 <body>
-    <h2>Login</h2>
-    <?php if (isset($_GET['error'])) echo "<p style='color:red'>Invalid credentials!</p>"; ?>
-    <?php if (isset($_GET['message']) && $_GET['message'] === 'registered') echo "<p style='color:green'>Registration successful! Please log in.</p>"; ?>
-    <form action="?page=login" method="POST">
-        <input type="email" name="email" placeholder="Email" required><br>
-        <input type="password" name="password" placeholder="Password" required><br>
-        <button type="submit">Login</button>
-    </form>
-    <p>Don't have an account? <a href="?page=register">Register</a></p>
+    <div class="auth-container">
+        <h2>Login</h2>
+
+        <?php if (isset($_GET['error'])): ?>
+            <div class="error">Invalid credentials!</div>
+        <?php endif; ?>
+
+        <?php if (isset($_GET['message']) && $_GET['message'] === 'registered'): ?>
+            <div class="success">Registration successful! Please log in.</div>
+        <?php endif; ?>
+
+        <form action="?page=login" method="POST">
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <input type="submit" value="Login">
+        </form>
+
+        <p>Don't have an account? <a href="?page=register">Register</a></p>
+    </div>
 </body>
 </html>

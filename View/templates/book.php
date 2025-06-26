@@ -20,7 +20,7 @@
                 <a href="?page=login" class="button-tile">Login</a>
             <?php endif; ?>
         </div>
-
+                            <a href="/MVC-Library/" class="button-tile">← Back to Home</a>
         <div class="section">
             <h1><?= htmlspecialchars($book['title'] ?? 'No title') ?></h1>
             <div class="item-details">
@@ -52,7 +52,6 @@
     </form>
 <?php endif; ?>
 
-            <a href="/MVC-Library/" class="button-tile">Back to Home</a>
         </div>
     </div>
 </body>

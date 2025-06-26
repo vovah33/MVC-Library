@@ -20,7 +20,7 @@
                 <a href="?page=login" class="button-tile">Login</a>
             <?php endif; ?>
         </div>
-
+            <a href="/MVC-Library/" class="button-tile">← Back to Home</a>
         <div class="section">
             <h1><?= htmlspecialchars($author['name'] ?? 'No name') ?></h1>
             <div class="item-details">
@@ -46,7 +46,7 @@
                     <p>No books available for this author.</p>
                 <?php endif; ?>
             </div>
-        <?php if (isset($_SESSION['user'])): ?>
+<?php if (isset($_SESSION['user'])): ?>
     <form method="post">
         <?php if ($isFavorite): ?>
             <button type="submit" name="remove_favorite" class="button-tile danger">Remove from Favorites</button>
@@ -56,7 +56,7 @@
     </form>
 <?php endif; ?>
 
-            <a href="/MVC-Library/" class="button-tile">Back to Home</a>
+
         </div>
     </div>
 </body>

@@ -1,5 +1,7 @@
 <?php
 require_once 'Models/GenreModel.php';
+require_once 'Models/BookModel.php';
+require_once 'Models/FavoritesModel.php';
 
 class GenreController {
     private $db;

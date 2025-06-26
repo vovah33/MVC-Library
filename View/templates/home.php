@@ -29,7 +29,7 @@
             <h3>Books</h3>
             <a href="?page=books" class="button-tile section-link">All Books</a>
             <div class="grid-row">
-                <?php foreach ($books as $book): ?>
+                <?php foreach (array_slice($books, 0, 6) as $book): ?>
                     <div class="tile">
                         <a href="?page=book&id=<?= htmlspecialchars($book['id']) ?>">
                             <img src="/MVC-Library/Public/Images/Covers/<?= htmlspecialchars($book['cover'] ?? '') ?>" alt="<?= htmlspecialchars($book['title']) ?>">
@@ -42,7 +42,7 @@
             <h3>Authors</h3>
             <a href="?page=authors" class="button-tile section-link">All Authors</a>
             <div class="grid-row">
-                <?php foreach ($authors as $author): ?>
+                <?php foreach (array_slice($authors, 0, 6) as $author): ?>
                     <div class="tile">
                         <a href="?page=author&id=<?= htmlspecialchars($author['id']) ?>">
                             <img src="/MVC-Library/Public/Images/Photos/<?= htmlspecialchars($author['photo'] ?? '') ?>" alt="<?= htmlspecialchars($author['name']) ?>">
@@ -55,7 +55,7 @@
             <h3>Genres</h3>
             <a href="?page=genres" class="button-tile section-link">All Genres</a>
             <div class="grid-row">
-                <?php foreach ($genres as $genre): ?>
+                <?php foreach (array_slice($genres, 0, 6) as $genre): ?>
                     <div class="tile">
                         <a href="?page=genre&id=<?= htmlspecialchars($genre['id']) ?>">
                             <img src="/MVC-Library/Public/Images/Icons/<?= htmlspecialchars($genre['icone'] ?? '') ?>" alt="<?= htmlspecialchars($genre['name']) ?>">
