@@ -1,0 +1,93 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36" version="26.2.9">
+  <diagram name="Page-1" id="bZJFPh0OxanoHzVfpBTU">
+    <mxGraphModel dx="1222" dy="618" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="dPNmFjtmq0g94U8w2ZvC-1" value="" style="ellipse;html=1;shape=startState;fillColor=#000000;strokeColor=#ff0000;" vertex="1" parent="1">
+          <mxGeometry x="350" y="150" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="dPNmFjtmq0g94U8w2ZvC-2" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;verticalAlign=bottom;endArrow=open;endSize=8;strokeColor=#ff0000;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" source="dPNmFjtmq0g94U8w2ZvC-1" parent="1" target="dPNmFjtmq0g94U8w2ZvC-12">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="365" y="220" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dPNmFjtmq0g94U8w2ZvC-12" value="Open inlogpagina" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fontColor=#000000;fillColor=#ffffc0;strokeColor=#ff0000;" vertex="1" parent="1">
+          <mxGeometry x="305" y="230" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="dPNmFjtmq0g94U8w2ZvC-13" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;verticalAlign=bottom;endArrow=open;endSize=8;strokeColor=#ff0000;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" source="dPNmFjtmq0g94U8w2ZvC-12" parent="1" target="dPNmFjtmq0g94U8w2ZvC-14">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="365" y="330" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dPNmFjtmq0g94U8w2ZvC-14" value="Voer email en wachtwoord in" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fontColor=#000000;fillColor=#ffffc0;strokeColor=#ff0000;" vertex="1" parent="1">
+          <mxGeometry x="305" y="310" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="dPNmFjtmq0g94U8w2ZvC-15" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;verticalAlign=bottom;endArrow=open;endSize=8;strokeColor=#ff0000;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" source="dPNmFjtmq0g94U8w2ZvC-14" parent="1" target="dPNmFjtmq0g94U8w2ZvC-19">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="365" y="369.9999999999999" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dPNmFjtmq0g94U8w2ZvC-19" value="Valideer gegevens" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fontColor=#000000;fillColor=#ffffc0;strokeColor=#ff0000;" vertex="1" parent="1">
+          <mxGeometry x="305" y="380" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="dPNmFjtmq0g94U8w2ZvC-20" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;verticalAlign=bottom;endArrow=open;endSize=8;strokeColor=#ff0000;rounded=0;" edge="1" source="dPNmFjtmq0g94U8w2ZvC-19" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="365" y="470" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dPNmFjtmq0g94U8w2ZvC-21" value="Correct?" style="rhombus;whiteSpace=wrap;html=1;fontColor=#000000;fillColor=#ffffc0;strokeColor=#ff0000;" vertex="1" parent="1">
+          <mxGeometry x="320" y="470" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="dPNmFjtmq0g94U8w2ZvC-22" value="no" style="edgeStyle=orthogonalEdgeStyle;html=1;align=left;verticalAlign=bottom;endArrow=open;endSize=8;strokeColor=#ff0000;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" source="dPNmFjtmq0g94U8w2ZvC-21" parent="1" target="dPNmFjtmq0g94U8w2ZvC-29">
+          <mxGeometry x="-0.2525" relative="1" as="geometry">
+            <mxPoint x="520" y="530" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dPNmFjtmq0g94U8w2ZvC-23" value="yes" style="edgeStyle=orthogonalEdgeStyle;html=1;align=left;verticalAlign=top;endArrow=open;endSize=8;strokeColor=#ff0000;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" source="dPNmFjtmq0g94U8w2ZvC-21" parent="1" target="dPNmFjtmq0g94U8w2ZvC-24">
+          <mxGeometry x="-0.292" y="-20" relative="1" as="geometry">
+            <mxPoint x="190" y="530" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="191" y="490" />
+              <mxPoint x="191" y="530" />
+              <mxPoint x="190" y="530" />
+            </Array>
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dPNmFjtmq0g94U8w2ZvC-24" value="Login gebruiker" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fontColor=#000000;fillColor=#ffffc0;strokeColor=#ff0000;" vertex="1" parent="1">
+          <mxGeometry x="130" y="530" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="dPNmFjtmq0g94U8w2ZvC-25" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;verticalAlign=bottom;endArrow=open;endSize=8;strokeColor=#ff0000;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" source="dPNmFjtmq0g94U8w2ZvC-24" parent="1" target="dPNmFjtmq0g94U8w2ZvC-26">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="190" y="630" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dPNmFjtmq0g94U8w2ZvC-26" value="Toon persoonlijke pagina" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fontColor=#000000;fillColor=#ffffc0;strokeColor=#ff0000;" vertex="1" parent="1">
+          <mxGeometry x="130" y="610" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="dPNmFjtmq0g94U8w2ZvC-27" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;verticalAlign=bottom;endArrow=open;endSize=8;strokeColor=#ff0000;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" source="dPNmFjtmq0g94U8w2ZvC-26" parent="1" target="dPNmFjtmq0g94U8w2ZvC-28">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="190" y="730" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dPNmFjtmq0g94U8w2ZvC-28" value="" style="ellipse;html=1;shape=endState;fillColor=#000000;strokeColor=#ff0000;" vertex="1" parent="1">
+          <mxGeometry x="175" y="690" width="30" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="dPNmFjtmq0g94U8w2ZvC-29" value="Toon foutmelding" style="rounded=1;whiteSpace=wrap;html=1;arcSize=40;fontColor=#000000;fillColor=#ffffc0;strokeColor=#ff0000;" vertex="1" parent="1">
+          <mxGeometry x="460" y="530" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="dPNmFjtmq0g94U8w2ZvC-30" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;verticalAlign=bottom;endArrow=open;endSize=8;strokeColor=#ff0000;rounded=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" source="dPNmFjtmq0g94U8w2ZvC-29" parent="1" target="dPNmFjtmq0g94U8w2ZvC-14">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="430" y="320" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="640" y="540" />
+              <mxPoint x="640" y="330" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
